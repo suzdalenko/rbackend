@@ -34,7 +34,8 @@ def UserLoginCorrectry(rq):
 def SetLocateAddress(lineModel):
     address    = lineModel.country+'+'+lineModel.region+'+'+lineModel.city
     address    = address.strip().lower().replace(' ', '+').replace('++', '+')
-    url_path   = 'https://maps.googleapis.com/maps/api/geocode/json?address='+address+'&key='+settings.GOOGLE_KEY
+    GOOGLE_KEY = 'AIzaSyBDKhqes2S-VlNPQmOi70qpJMkaCfhzyt4'
+    url_path   = 'https://maps.googleapis.com/maps/api/geocode/json?address='+address+'&key='+GOOGLE_KEY
     try:
         result        = requests.get(url_path)
         parsed        = json.loads(result.content)
